@@ -14,7 +14,7 @@ const Numbers = (props) => {
         </div>
     )
 };
-Numbers.list = [...Array(10).keys()].map(x => x+1);
+Numbers.list = [...Array(9).keys()].map(x => x+1);
 
 
 export default Numbers;
