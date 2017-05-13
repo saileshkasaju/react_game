@@ -5,15 +5,21 @@ import React from 'react';
 import Stars from './Stars';
 import Button from './Button';
 import Answer from './Answer';
+import Numbers from './Numbers';
 
 class Game extends React.Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <h3>Play Nine</h3>
-                <Stars />
-                <Button />
-                <Answer />
+                <hr />
+                <div className="row">
+                    <Stars />
+                    <Button />
+                    <Answer />
+                </div>
+                <br />
+                <Numbers />
             </div>
         );
     }

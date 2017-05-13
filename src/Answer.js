@@ -5,7 +5,7 @@ import React from 'react';
 
 const Answer = (props) => {
     return (
-        <div>
+        <div className="col-5">
             ...
         </div>
     );
