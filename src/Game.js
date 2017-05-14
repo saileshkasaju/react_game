@@ -32,7 +32,8 @@ class Game extends React.Component {
                 <hr />
                 <div className="row">
                     <Stars numberOfStars={randomNumberOfStars} />
-                    <Button />
+                    <Button selectedNumbers={selectedNumbers}
+                    />
                     <Answer selectedNumbers={selectedNumbers}
                             unselectNumber={this.unselectNumber}
                     />
