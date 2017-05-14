@@ -10,7 +10,8 @@ import Numbers from './Numbers';
 class Game extends React.Component {
     state = {
         selectedNumbers: [],
-        randomNumberOfStars: 1+ Math.floor(Math.random()*9)
+        randomNumberOfStars: 1+ Math.floor(Math.random()*9),
+        answerIsCorrect: null
     };
     selectNumber = (clickedNumber) => {
         if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) { return; }
@@ -18,14 +19,24 @@ class Game extends React.Component {
             selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
         }))
     };
-    unselectNumber = (clickedNumber) => {
+    deselectNumber = (clickedNumber) => {
         this.setState(prevState => ({
             selectedNumbers: prevState.selectedNumbers
                 .filter(number => number !== clickedNumber)
         }));
     };
+    checkAnswer = () => {
+      this.setState(prevState => ({
+          answerIsCorrect: prevState.randomNumberOfStars ===
+              prevState.selectedNumbers.reduce((acc, n) => acc + n, 0)
+      }));
+    };
     render() {
-        const {randomNumberOfStars, selectedNumbers} = this.state;
+        const {
+            randomNumberOfStars,
+            selectedNumbers,
+            answerIsCorrect
+        } = this.state;
         return (
             <div className="container">
                 <h3>Play Nine</h3>
@@ -33,9 +44,11 @@ class Game extends React.Component {
                 <div className="row">
                     <Stars numberOfStars={randomNumberOfStars} />
                     <Button selectedNumbers={selectedNumbers}
+                            checkAnswer={this.checkAnswer}
+                            answerIsCorrect={answerIsCorrect}
                     />
                     <Answer selectedNumbers={selectedNumbers}
-                            unselectNumber={this.unselectNumber}
+                            unselectNumber={this.deselectNumber}
                     />
                 </div>
                 <br />
