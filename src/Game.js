@@ -8,9 +8,10 @@ import Answer from './Answer';
 import Numbers from './Numbers';
 
 class Game extends React.Component {
+    static randomNumber = () => 1+ Math.floor(Math.random()*9);
     state = {
         selectedNumbers: [],
-        randomNumberOfStars: 1+ Math.floor(Math.random()*9),
+        randomNumberOfStars: Game.randomNumber(),
         usedNumbers: [],
         answerIsCorrect: null,
         redraws: 5
@@ -39,17 +40,17 @@ class Game extends React.Component {
         this.setState(prevState => ({
             usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
             selectedNumbers: [],
-            randomNumberOfStars: 1+ Math.floor(Math.random()*9)
+            randomNumberOfStars: Game.randomNumber()
         }))
     };
     redraw = () => {
         if (this.state.redraws === 0) { return; }
         this.setState(prevState => ({
             selectedNumbers: [],
-            randomNumberOfStars: 1+ Math.floor(Math.random()*9),
+            randomNumberOfStars: Game.randomNumber(),
             answerIsCorrect: null,
             redraws: prevState.redraws - 1
-        }))
+        }));
     };
     render() {
         const {

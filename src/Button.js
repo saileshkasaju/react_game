@@ -22,7 +22,7 @@ const Button = (props) => {
             break;
         default:
             button =(
-                <button className="btm"
+                <button className="btn"
                         onClick={props.checkAnswer}
                         disabled={props.selectedNumbers.length === 0}
                 >
@@ -34,9 +34,10 @@ const Button = (props) => {
     return (
         <div className="col-2">
             {button}
-            <button className="btn btn-warning btn-sn"
-                    onClick={this.redraw}
-                    disabled={this.props.redraws === 0}
+            <br />
+            <button className="btn btn-warning btn-sm"
+                    onClick={props.redraw}
+                    disabled={props.redraws === 0}
             >
                 <i className="fa fa-refresh"></i>{props.redraws}
             </button>
