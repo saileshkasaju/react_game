@@ -8,6 +8,9 @@ const Numbers = (props) => {
         if (props.selectedNumbers.indexOf(number) >= 0) {
             return 'selected';
         }
+        if (props.usedNumbers.indexOf(number) >= 0) {
+            return 'used';
+        }
     };
     return (
         <div className="card text-center">
