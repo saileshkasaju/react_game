@@ -32,7 +32,7 @@ const Button = (props) => {
             break;
     }
     return (
-        <div className="col-2">
+        <div className="col-2 text-center">
             {button}
             <br />
             <button className="btn btn-warning btn-sm"
